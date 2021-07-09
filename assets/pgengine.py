@@ -115,9 +115,9 @@ class Particle(Obj):
         self.y += self.motion_y
     
     def update_circle(self):
-        self.y_momentum += self.gravity
+        self.motion_y += self.gravity
         self.x += self.motion_x
-        self.y += self.motion_y + self.y_momentum
+        self.y += self.motion_y 
         self.width -= self.decrease
         self.height -= self.decrease
 
