@@ -269,9 +269,17 @@ while loop:
     #player
     player.draw_img(window)
     player.update()
+    if player.x > WINDOW_SIZE[0] - player.width:
+        player.x = WINDOW_SIZE[0] - player.width
+        player.x_momentum = 0
+    if player.x < 0:
+        player.x = 0
+        player.x_momentum = 0
     
     #ground
     ground.draw_img(window)
 
+
+    draw_text(window, 'Score:' + str(player.score), 10, 10, 30, font= 'assets/Comodore64.TTF')
     pygame.display.update()
     clock.tick(fps)

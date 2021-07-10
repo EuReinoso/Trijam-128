@@ -4,6 +4,7 @@ from pygame.locals import *
 from random import randint
 
 pygame.init()
+pygame.font.init()
 
 #globals
 animation_img_data = {}
@@ -12,6 +13,12 @@ fps = 60
 clock = pygame.time.Clock()
 
 # Utility Stuff ---------------------------------------------------------------------------------#
+def draw_text(surface, text, x, y, size, font= 'calibri', color= (0, 0, 0)):
+    text_font = pygame.font.Font(font, size)
+    render = text_font.render(text, True, color)
+    surface.blit(render, (x, y))
+    
+
 def xy_range(x_range: tuple, y_range : tuple) -> list:
     return [randint(x_range[0], x_range[1]), randint(y_range[0], y_range[0])]
 
