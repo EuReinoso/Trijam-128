@@ -30,13 +30,15 @@ def load_img(path, colorkey= (255, 255, 255)):
 def create_animation_data(images : list, anim_name : str, frames_sequence : list) -> list:
     global animation_img_data
     animation_data = []
+    images_set = {}
     n = 0
     for seq in frames_sequence:
         anim_id = anim_name + '_' + str(n)
-        animation_img_data[anim_id] = images[n].copy()
+        images_set[anim_id] = images[n].copy()
         for i in range(seq):
             animation_data.append(anim_id)
         n += 1
+    animation_img_data[anim_name] = images_set
     
     return animation_data
 
